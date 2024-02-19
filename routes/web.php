@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\RoomController;
 
 
 /*
@@ -37,9 +38,8 @@ Route::get('/n_allroom', function () {
     return view('n_allroom');
 });
 
-// Route::get('/y_welcome', function () {
-//     return view('y_welcome');
-// });
+// user ดูห้องพัก
+Route::get('/y_allroom',[RoomController::class,'index']);
 
 Route::get('/roomlist', function () {
     return view('roomlist');

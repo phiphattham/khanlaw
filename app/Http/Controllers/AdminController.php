@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Room;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
     function index (){
-        $blogs=DB::table('rooms')->get();
+        $blogs=Room::get();
         return view ('/admin/layout-static', compact('blogs'));
     }
 

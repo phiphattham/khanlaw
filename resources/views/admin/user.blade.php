@@ -216,7 +216,8 @@
                             </table>
 
                             <tbody>
-                                <th scope="row">{{ $loop->iteration}}</th>
+                                {{-- แสดงหน้าสมาชิก --}}
+                                <th scope="row"></th>
                             </tbody>
                         </div>
                     </div>
