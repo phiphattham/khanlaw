@@ -22,10 +22,6 @@ class BookingFactory extends Factory
             'room_number'=>rand(0,999),
             'check_in'=>fake()->dateTime(),
             'check_out'=>fake()->dateTime(),
-            'b_fname'=>fake()->name(),
-            'b_lname'=>fake()->name(),
-            'b_tel' =>fake()->phoneNumber(),
-            'b_email' => fake()->unique()->safeEmail(),
             'amount'=>rand(1,2),
         ];
     }

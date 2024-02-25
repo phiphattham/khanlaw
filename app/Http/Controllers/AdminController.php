@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
-    function index (){
+    function index () {
         $blogs=Room::get();
         return view ('/admin/layout-static', compact('blogs'));
     }

@@ -114,6 +114,8 @@
 
     @foreach ($blogs as $blog)
     <div class="container">
+        <form action="{{ route ('detail', $blog->id)}}" method="POST" enctype="multipart/form-data">
+            @csrf
         <div class="row">
             <div class="col">
                 <div class="card mt-5" style="width: 30rem;">
@@ -148,7 +150,7 @@
 
                     </ul>
                     <div class="card-body">
-                        <a type="button" href="#" class="btn btn-primary me-3">ราคา 500 บาท/คืน</a>
+                        <a type="button" href="{{ url('y_view_dt',$blog->id)}}" class="btn btn-primary me-3">ราคา 500 บาท/คืน</a>
                         <a href="#" class="card-link">ดูรายละเอียด</a>
                     </div>
                 </div>
@@ -156,11 +158,12 @@
             <div class="col-sm-2">
             </div>
         </div>
+    </form>
     </div>
     @endforeach
 
 
-
+    
 
     {{-- btn เลือกหน้า --}}
     <footer class="page-center">

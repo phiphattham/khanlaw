@@ -41,10 +41,6 @@ Route::get('/n_allroom', function () {
 // user ดูห้องพัก
 Route::get('/y_allroom',[RoomController::class,'index']);
 
-Route::get('/roomlist', function () {
-    return view('roomlist');
-});
-
 Route::get('/n2_allroom', function () {
     return view('n2_allroom');
 });
@@ -57,9 +53,7 @@ Route::get('/y_view_dt', function () {
     return view('y_view_dt');
 });
 
-Route::get('/again_dt', function () {
-    return view('again_dt');
-});
+
 
 
 
@@ -111,3 +105,13 @@ Route::get('/y_welcome', [App\Http\Controllers\HomeController::class, 'index'])-
 
 // หน้า admin
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard')->middleware('is_admin');
+
+//ดึงข้อมูล detil ให้ไปใช้ในหน้า y_view_dt  
+Route::get('y_view_dt/{id}',[App\Http\Controllers\RoomController::class, 'room_detail'])->name('detail');
+
+//booking
+Route::post('booking/{id}',[App\Http\Controllers\RoomController::class, 'booking'])->name('booking');
+Route::get('/again_dt/{booking_id}', [App\Http\Controllers\RoomController::class, 'again_booking'])->name('again');
+
+//guest_information
+Route::post('roomlist/{id}', [App\Http\Controllers\RoomController::class, 'check'])->name('check');
