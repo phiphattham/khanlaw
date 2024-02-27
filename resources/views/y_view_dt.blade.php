@@ -84,7 +84,7 @@
             </div>
         </div>
     </nav>
-    <p>{{$room_detail}}</p>
+    {{-- <p>{{$room_detail}}</p> --}}
 
     <div>
         <img src="{{ asset('img/index.jpg') }}" alt="อากาศ" class="crop-img">
@@ -100,8 +100,7 @@
         <div class="card my-5 mx-5">
             <div class="row">
                 <div class="col">
-                    <img src="{{ asset('storage/img/' . basename($room_detail->img)) }}"
-                        class="img-fluid rounded-start">
+                    <img src="{{ asset('storage/img/' . basename($room_detail->img)) }}" class="img-fluid rounded-start">
                 </div>
                 <div class="col">
                     <div class="card-body">

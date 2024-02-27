@@ -49,14 +49,6 @@ Route::get('/n3_allroom', function () {
     return view('n3_allroom');
 });
 
-Route::get('/y_view_dt', function () {
-    return view('y_view_dt');
-});
-
-
-
-
-
 
 
 

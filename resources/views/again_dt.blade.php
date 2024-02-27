@@ -166,36 +166,41 @@
 
     <div class="container mt-5 my-5">
         <main class="w-100 m-auto">
-            <form>
+            
+            <form action="{{ route ('check',$booking_data->id)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+            
                 <ins class="h5 mb-3 fw-narmal">กรอกข้อมูลผู้เข้าพัก</ins>
                 <!--ส่วนของชื่อ-->
-                <div class="form-floating">
-                    <label for="name">กรอกชื่อของคุณ</label>
+                <div class="form-floating mt-4">
                     <input type="text" class="form-control" id="b_fname" name="b_fname" placeholder="firstname">
+                    <label for="name">กรอกชื่อของคุณ</label>
                 </div>
                 <!--ส่วนของนามสกุล-->
-                <div class="form-floating">
-                    <label for="lname">กรอกนามสกุลของคุณ</label>
+                <div class="form-floating mt-4">
                     <input type="text" class="form-control" id="b_lname" name="b_lname" placeholder="lastname">
+                    <label for="lname">กรอกนามสกุลของคุณ</label>
                 </div>
                 <!--ส่วนของ tel-->
-                <div class="form-floating">
-                    <label for="tel">กรอกเบอร์โทรศัพท์ของคุณ</label>
+                <div class="form-floating mt-4">
                     <input type="text" class="form-control" id="b_tel" name="b_tel" placeholder="number">
+                    <label for="tel">กรอกเบอร์โทรศัพท์ของคุณ</label>
                 </div>
                 <!--ส่วนของ e-mail-->
-                <div class="form-floating">
-                    <label for="email">กรอกอีเมล</label>
+                <div class="form-floating mt-4">
                     <input type="email" class="form-control" id="b_email" name="b_email" placeholder="email">
+                    <label for="email">กรอกอีเมล</label>
                 </div>
 
-                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#myModal">
-                    ยืนยัน</button>
+                <button type="submit" class="btn btn-primary w-100 mt-4"  id="button-addon2">ยืนยัน</button>
+
+                {{-- <button type="button" class="btn btn-primary w-100 mt-4" data-bs-toggle="modal" data-bs-target="#myModal">
+                    ยืนยัน</button> --}}
             </form>
         </main>
     </div>
 
-    <div class="modal fade" id="myModal">
+    {{-- <div class="modal fade" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -218,7 +223,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 

@@ -53,25 +53,39 @@ class RoomController extends Controller
         $booking_data = DB::table('bookings')->where('id', $booking_id)->first();
         $room_data = DB::table('rooms')->where('id', $booking_data->room_id)->first();
 
+
+
+
         // dd($room_data);
         return view('again_dt', compact('booking_data', 'room_data'));
     }
 
-    function check (Request $request, $id){
-        
 
-        
+
+
+    // เช็คอีกครั้งว่าจะเอาข้อมูลนี้ใช่ไหมในการจองห้องพัก
+    function check (Request $request, $id){
+
         $data = [
-            'booking_id',
+            'booking_id' => $id,
             'b_fname' => $request->b_fname, 
             'b_lname' => $request->b_lname,
             'b_tel' => $request->b_tel,
             'b_email' => $request->b_email,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
         ];
 
         // dd($data);
         DB::table('guest_information')->insert($data);
-        return redirect();
+
+        $guest_data = DB::table('guest_information')->where('booking_id', $id)->first();
+        $booking_data = DB::table('bookings')->where('id', $id)->first();
+        $room_data = DB::table('rooms')->where('id', $booking_data->room_id)->first();
+
+        // dd($room_data);
+        return view('roomlist', compact('guest_data', 'booking_data', 'room_data'));
+
     }
 
 }

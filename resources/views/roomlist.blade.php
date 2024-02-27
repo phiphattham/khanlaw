@@ -93,14 +93,34 @@
 
 
 
-{{-- รายการจองรอการกดยืนยัน --}}
-    <div class="container text-center mt-5">
-        <div class="row">
+    {{-- รายการจองรอการกดยืนยัน --}}
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th scope="col">รูป</th>
+                <th scope="col">ข้อมูล</th>
+                <th scope="col">เลือก</th>
+            </tr>
+        </thead>
 
+        <tbody>
+
+                <tr>
+                    <td><img src="{{ asset('storage/img/' . basename($room_data->img)) }}" class="rounded" style="width: 30rem;" alt="..."></td>
+                    <td>
+                        ชื่อ {{ $guest_data->b_fname }} นามสกุล {{ $guest_data->b_lname }} {{ $guest_data->b_tel }} {{ $guest_data->b_email }}<br>
+                        ห้องที่ {{ $room_data->room_number }} {{ $room_data->type}} {{ $booking_data->check_in }}
+                        {{ $booking_data->check_out }} {{ $booking_data->amount }} {{ $room_data->price }}
+                    </td>
+                    <td>
+                        <a  type="button" class="btn btn-warning">แก้ไข</a></th>
+                        <a  type="button" class="btn btn-primary">ยืนยัน</a>
+                    </td>
+                </tr>
             
-
-        </div>
-    </div>
+        </tbody>
+        {{-- <p>{{ $room_data->img }}</p> --}}
+    </table>
 
 
 </body>
